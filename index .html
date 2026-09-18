@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>For You 💗</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+
+    background: linear-gradient(
+        -45deg,
+        #ffd6e7,
+        #d9f7ff,
+        #ffe5f0,
+        #e0d9ff
+    );
+
+    background-size: 400% 400%;
+    animation: backgroundMove 10s ease infinite;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 20px;
+    overflow: hidden;
+}
+
+
+/* =========================
+   ANIMATED BACKGROUND
+========================= */
+
+@keyframes backgroundMove {
+
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+
+}
+
+
+/* =========================
+   FLOATING HEARTS
+========================= */
+
+.hearts span {
+
+    position: fixed;
+
+    bottom: -50px;
+
+    font-size: 25px;
+
+    animation: floatHeart linear infinite;
+
+    opacity: 0.7;
+
+    pointer-events: none;
+}
+
+
+.hearts span:nth-child(1) {
+    left: 10%;
+    animation-duration: 7s;
+}
+
+.hearts span:nth-child(2) {
+    left: 25%;
+    animation-duration: 9s;
+    animation-delay: 2s;
+}
+
+.hearts span:nth-child(3) {
+    left: 45%;
+    animation-duration: 6s;
+    animation-delay: 1s;
+}
+
+.hearts span:nth-child(4) {
+    left: 65%;
+    animation-duration: 10s;
+    animation-delay: 3s;
+}
+
+.hearts span:nth-child(5) {
+    left: 82%;
+    animation-duration: 8s;
+    animation-delay: 1s;
+}
+
+
+@keyframes floatHeart {
+
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 0.8;
+    }
+
+    100% {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
+
+}
+
+
+/* =========================
+   BOX
+========================= */
+
+.box {
+
+    width: 100%;
+    max-width: 600px;
+
+    background: rgba(255,255,255,0.95);
+
+    padding: 35px;
+
+    border-radius: 30px;
+
+    text-align: center;
+
+    box-shadow:
+        0 15px 40px rgba(0,0,0,0.18);
+
+    animation: boxEnter 1s ease;
+
+    position: relative;
+    z-index: 2;
+}
+
+
+@keyframes boxEnter {
+
+    from {
+        opacity: 0;
+        transform: translateY(50px) scale(0.9);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+
+}
+
+
+/* =========================
+   PASSWORD SCREEN
+========================= */
+
+#website {
+    display: none;
+}
+
+
+.lock {
+
+    font-size: 70px;
+
+    display: inline-block;
+
+    animation:
+        lockBounce 2s infinite,
+        lockGlow 2s infinite;
+
+}
+
+
+@keyframes lockBounce {
+
+    0%,100% {
+        transform: translateY(0) rotate(0deg);
+    }
+
+    50% {
+        transform: translateY(-15px) rotate(-5deg);
+    }
+
+}
+
+
+@keyframes lockGlow {
+
+    0%,100% {
+        filter: drop-shadow(0 0 2px #ff4f81);
+    }
+
+    50% {
+        filter: drop-shadow(0 0 18px #ff4f81);
+    }
+
+}
+
+
+h1 {
+
+    color: #ff4f81;
+
+    animation: titleAppear 1.2s ease;
+
+}
+
+
+@keyframes titleAppear {
+
+    from {
+        opacity: 0;
+        transform: scale(0.7);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+}
+
+
+p {
+
+    color: #555;
+
+    line-height: 1.6;
+}
+
+
+/* =========================
+   INPUT
+========================= */
+
+input {
+
+    width: 90%;
+
+    padding: 15px;
+
+    border: 2px solid #ffc1d3;
+
+    border-radius: 15px;
+
+    font-size: 17px;
+
+    text-align: center;
+
+    outline: none;
+
+    transition: 0.3s;
+
+}
+
+
+input:focus {
+
+    border-color: #ff4f81;
+
+    box-shadow:
+        0 0 15px rgba(255,79,129,0.25);
+
+    transform: scale(1.03);
+
+}
+
+
+/* =========================
+   BUTTON
+========================= */
+
+button {
+
+    margin-top: 18px;
+
+    padding: 14px 28px;
+
+    border: none;
+
+    border-radius: 30px;
+
+    background: #ff4f81;
+
+    color: white;
+
+    font-size: 17px;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+
+    animation: buttonPulse 2s infinite;
+
+}
+
+
+button:hover {
+
+    transform: scale(1.08);
+
+    background: #ff336d;
+
+}
+
+
+@keyframes buttonPulse {
+
+    0%,100% {
+        box-shadow: 0 0 0 rgba(255,79,129,0);
+    }
+
+    50% {
+        box-shadow: 0 0 20px rgba(255,79,129,0.45);
+    }
+
+}
+
+
+/* =========================
+   ERROR
+========================= */
+
+#error {
+
+    color: #ff4f81;
+
+    font-weight: bold;
+
+    margin-top: 15px;
+
+    min-height: 25px;
+
+}
+
+
+/* =========================
+   MAIN WEBSITE
+========================= */
+
+.card {
+
+    background: #fff3f7;
+
+    margin: 15px 0;
+
+    padding: 18px;
+
+    border-radius: 18px;
+
+    text-align: left;
+
+    transition: 0.3s;
+
+}
+
+
+.card:hover {
+
+    transform: translateY(-5px) scale(1.02);
+
+    box-shadow:
+        0 8px 20px rgba(255,79,129,0.15);
+
+}
+
+
+.card h2 {
+
+    color: #ff4f81;
+
+}
+
+
+#message {
+
+    color: #ff4f81;
+
+    font-size: 20px;
+
+    font-weight: bold;
+
+    margin-top: 20px;
+
+    animation: messagePop 0.5s ease;
+
+}
+
+
+@keyframes messagePop {
+
+    from {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+}
+
+
+.bigHeart {
+
+    font-size: 65px;
+
+    animation: heartbeat 1.3s infinite;
+
+}
+
+
+@keyframes heartbeat {
+
+    0%,100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- FLOATING HEARTS -->
+
+<div class="hearts">
+
+    <span>💗</span>
+    <span>💕</span>
+    <span>💖</span>
+    <span>💗</span>
+    <span>💞</span>
+
+</div>
+
+
+
+<!-- =========================
+     PASSWORD HOME SCREEN
+========================= -->
+
+<div class="box" id="login">
+
+    <div class="lock">
+        🔐
+    </div>
+
+    <h1>
+        Wait! 👀
+    </h1>
+
+    <p>
+
+        This website is only for
+        <b>one special person</b>. 🤫💗
+
+        <br><br>
+
+        If you are that person...
+
+        <br>
+
+        You should know the secret password. 😌
+
+    </p>
+
+
+    <input
+        type="password"
+        id="password"
+        placeholder="Enter secret password 🔑"
+    >
+
+
+    <br>
+
+
+    <button onclick="unlock()">
+
+        Unlock My Secret 💗
+
+    </button>
+
+
+    <div id="error"></div>
+
+</div>
+
+
+
+<!-- =========================
+     MAIN WEBSITE
+========================= -->
+
+<div class="box" id="website">
+
+    <div class="bigHeart">
+        💗
+    </div>
+
+
+    <h1>
+        Hey You! 🥺
+    </h1>
+
+
+    <p>
+
+        Welcome to your official
+
+        <br>
+
+        <b>
+            "TAKE CARE OF YOURSELF"
+        </b>
+
+        website. 😤💗
+
+    </p>
+
+
+
+    <div class="card">
+
+        <h2>
+            🥤 Drink Water
+        </h2>
+
+        <p>
+
+            Please drink enough water.
+
+            <br>
+
+            You are not a cactus. 🌵😂
+
+        </p>
+
+    </div>
+
+
+
+    <div class="card">
+
+        <h2>
+            🍎 Eat Properly
+        </h2>
+
+        <p>
+
+            Please don't survive only
+            on snacks.
+
+            <br>
+
+            Your body needs proper food too. 😭
+
+        </p>
+
+    </div>
+
+
+
+    <div class="card">
+
+        <h2>
+            😴 Get Some Sleep
+        </h2>
+
+        <p>
+
+            Please sleep properly.
+
+            <br>
+
+            The internet will survive
+            without you for a few hours. 😂📱
+
+        </p>
+
+    </div>
+
+
+
+    <div class="card">
+
+        <h2>
+            🫶 Take Care of Yourself
+        </h2>
+
+        <p>
+
+            Take breaks, relax, smile
+            and look after yourself. 💗
+
+        </p>
+
+    </div>
+
+
+
+    <button onclick="message()">
+
+        Click Me 💌
+
+    </button>
+
+
+    <div id="message"></div>
+
+
+    <p>
+
+        You matter more than you realize. 💗
+
+        <br><br>
+
+        So please take care of yourself. 🫶
+
+    </p>
+
+</div>
+
+
+
+<script>
+
+
+/* =========================
+   PASSWORD
+========================= */
+
+const correctPassword = "19-12-2011";
+
+
+function unlock() {
+
+    const entered =
+        document.getElementById("password").value;
+
+
+    if (entered === correctPassword) {
+
+        document.getElementById("login").style.display = "none";
+
+        document.getElementById("website").style.display = "block";
+
+    }
+
+    else {
+
+        document.getElementById("error").textContent =
+            "❌ Wrong password! 😂 Try again.";
+
+    }
+
+}
+
+
+
+/* =========================
+   FUN MESSAGE
+========================= */
+
+function message() {
+
+    const messages = [
+
+        "🥤 Go drink some water! 😤",
+
+        "😴 Your bed is waiting for you!",
+
+        "🍎 Please eat something proper!",
+
+        "🫶 Take care of yourself!",
+
+        "😂 This website is worried about you!",
+
+        "💗 Don't forget to smile!",
+
+        "🥺 Someone really wants you to stay healthy!"
+
+    ];
+
+
+    const random =
+        messages[Math.floor(Math.random() * messages.length)];
+
+
+    document.getElementById("message").textContent =
+        random;
+
+}
+
+</script>
+
+
+</body>
+</html>
